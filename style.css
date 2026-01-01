@@ -1,0 +1,179 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    transition: background 0.3s;
+}
+
+/* Themes */
+body.dark {
+    background: black;
+}
+
+body.light {
+    background: #f2f2f2;
+}
+
+/* Calculator body */
+.calculator {
+    width: 320px;
+    background: black;
+    border-radius: 24px;
+    padding: 10px 5px 15px;
+    border: 2px solid #1f1f1f;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+}
+
+/* Light theme body */
+body.light .calculator {
+    background: white;
+    border: 2px solid #ccc;
+}
+
+/* Top bar */
+.top {
+    display: flex;
+    justify-content: flex-end;
+    padding: 6px 10px;
+}
+
+#themeToggle {
+    font-size: 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* Display */
+#display {
+    width: 100%;
+    height: 90px;
+    font-size: 48px;
+    text-align: right;
+    border: none;
+    padding: 10px;
+    background: transparent;
+}
+
+body.dark #display {
+    color: white;
+}
+
+body.light #display {
+    color: black;
+}
+
+/* Buttons grid */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    padding: 10px;
+}
+
+button {
+    height: 65px;
+    border-radius: 50%;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* Button styles */
+body.dark button {
+    background: #333;
+    color: white;
+}
+
+body.light button {
+    background: #e0e0e0;
+    color: black;
+}
+
+.operator {
+    background: #ff9f0a !important;
+    color: white !important;
+}
+
+.light {
+    background: #a5a5a5 !important;
+    color: black !important;
+}
+
+.zero {
+    grid-column: span 2;
+    border-radius: 40px;
+}
+
+/* History */
+.history {
+    width: 320px;
+    margin-top: 12px;
+    border-radius: 16px;
+    padding: 10px;
+    max-height: 180px;
+    overflow-y: auto;
+}
+
+body.dark .history {
+    background: #111;
+    color: white;
+    border: 1px solid #222;
+}
+
+body.light .history {
+    background: #fafafa;
+    color: black;
+    border: 1px solid #ccc;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.history-header button {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+#historyList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#historyList li {
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Mobile scaling */
+@media (max-width: 400px) {
+    .calculator,
+    .history {
+        width: 95%;
+    }
+
+    button {
+        height: 60px;
+        font-size: 20px;
+    }
+
+    #display {
+        font-size: 40px;
+    }
+}
